@@ -30,5 +30,7 @@ public class Spawner : MonoBehaviour
         {
             timeBtwSpawn -= Time.deltaTime;
         }
+
+        Destroy(gameObject, 120);
     }
 }

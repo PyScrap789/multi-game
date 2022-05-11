@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
 	public float speed;
 
-	public player playerReference;
+	public Player playerReference;
 
 	private void Awake()
 	{
-		playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+		playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 	}
 
 	private void Update()

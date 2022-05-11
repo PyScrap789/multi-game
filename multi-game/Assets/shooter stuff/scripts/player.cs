@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,68 +9,37 @@ public class Player : MonoBehaviour
 	public GameObject bulletPrefab;
 	public GameObject firePosition;
 
-	float distY;
-	float distZ;
-	bool isDragging = false;
-	Vector3 offset;
-	Transform toDrag;
+	public float timeBetweenBulletSpawn;
+	public float startTimeBtwSpawn;
+	public float decreaseTime;
+	public float minTime = 0.65f;
 
 	public int health;
+	public TextMeshProUGUI healthText;
 
 	private void Update()
 	{
-
-		if (Input.GetMouseButtonDown(0))
-		{
-			Instantiate(bulletPrefab, firePosition.transform.position, Quaternion.identity);
-		}
 
 		if(health <= 0)
 		{
 			Destroy(gameObject);
 		}
 
-		Vector3 v3;
-
-		if(Input.touchCount != 1)
+		if (timeBetweenBulletSpawn <= 0)
 		{
-			isDragging = false;
-			return;
-		}
+			Instantiate(bulletPrefab, firePosition.transform.position, Quaternion.identity);
+			timeBetweenBulletSpawn = startTimeBtwSpawn;
 
-		Touch touch = Input.touches[0];
-		Vector3 pos = touch.position;
-
-		if(touch.phase == TouchPhase.Began)
-		{
-			Ray ray = Camera.main.ScreenPointToRay(pos);
-			RaycastHit hit;
-
-			if(Physics.Raycast(ray, out hit))
+			if (startTimeBtwSpawn > minTime)
 			{
-				if(hit.collider.tag == "Player")
-				{
-					toDrag = hit.transform;
-					distY = hit.transform.position.y - Camera.main.transform.position.y;
-					distZ = hit.transform.position.z - Camera.main.transform.position.z;
-					v3 = new Vector3(pos.x, distY, distZ);
-					v3 = Camera.main.ScreenToWorldPoint(v3);
-					offset = toDrag.position - v3;
-					isDragging = true;
-				}
+				startTimeBtwSpawn -= decreaseTime;
 			}
 		}
-
-		if (isDragging && touch.phase == TouchPhase.Moved)
+		else
 		{
-			v3 = new Vector3(Input.mousePosition.x, distY, distZ);
-			v3 = Camera.main.ScreenToViewportPoint(v3);
-			toDrag.position = v3 + offset;
+			timeBetweenBulletSpawn -= Time.deltaTime;
 		}
 
-		if(isDragging && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
-		{
-			isDragging = false;
-		}
+		healthText.text = "HEALTH - " + health.ToString();
 	}
 }

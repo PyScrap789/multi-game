@@ -6,31 +6,31 @@ public class Enemy : MonoBehaviour
 {
 	public float speed;
 
-	public Player playerReference;
+	public Player player;
 
 	private void Awake()
 	{
-		playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 	}
 
 	private void Update()
 	{
 		transform.Translate(Vector2.down * speed * Time.deltaTime);
+		Destroy(gameObject, 15);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag("Player"))
 		{
-			playerReference.health -= 1;
+			player.health -= 1;
 			Destroy(gameObject);
-			Debug.Log("destroyed");
 		}
 
 		if (collision.CompareTag("Bullet"))
 		{
+			player.score++;
 			Destroy(gameObject);
-			Debug.Log("destroyed");
 		}
 	}
 }

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 	public float decreaseTime;
 	public float minTime = 0.65f;
 
+	public float score;
+
 	public int health;
 	public TextMeshProUGUI healthText;
 
@@ -24,6 +26,8 @@ public class Player : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+
+		healthText.text = "HEALTH - " + health.ToString();
 
 		if (timeBetweenBulletSpawn <= 0)
 		{
@@ -39,7 +43,5 @@ public class Player : MonoBehaviour
 		{
 			timeBetweenBulletSpawn -= Time.deltaTime;
 		}
-
-		healthText.text = "HEALTH - " + health.ToString();
 	}
 }

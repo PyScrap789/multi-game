@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Spaceship : MonoBehaviour
 {
 	public Rigidbody2D rb;
 	public GameObject bulletPrefab;

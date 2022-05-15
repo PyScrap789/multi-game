@@ -6,11 +6,11 @@ public class Enemy : MonoBehaviour
 {
 	public float speed;
 
-	public Player player;
+	public Spaceship player;
 
 	private void Awake()
 	{
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Spaceship>();
 	}
 
 	private void Update()

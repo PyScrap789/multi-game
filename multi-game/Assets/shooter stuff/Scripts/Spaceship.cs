@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
-	public Rigidbody2D rb;
 	public GameObject bulletPrefab;
 	public GameObject firePosition;
 

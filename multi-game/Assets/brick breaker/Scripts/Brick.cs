@@ -18,6 +18,11 @@ public class Brick : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
+	private void Start()
+	{
+		health = Random.Range(1, 5);
+	}
+
 	private void Update()
 	{
 		if (health <= 0)

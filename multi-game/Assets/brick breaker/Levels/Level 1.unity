@@ -1943,9 +1943,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  highScore: 0
+  maxScore: 0
   scoreText: {fileID: 1687565707}
-  highScoreText: {fileID: 1558443730}
+  maxScoreText: {fileID: 1558443730}
 --- !u!4 &1231960691
 Transform:
   m_ObjectHideFlags: 0

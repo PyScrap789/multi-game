@@ -6,11 +6,13 @@ public class Enemy : MonoBehaviour
 {
 	public float speed;
 
-	public Spaceship player;
+	Spaceship spaceship;
+	ScoreManager scoreManager;
 
 	private void Awake()
 	{
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Spaceship>();
+		spaceship = GameObject.FindGameObjectWithTag("Player").GetComponent<Spaceship>();
+		scoreManager = GameObject.FindGameObjectWithTag("Score Manager").GetComponent<ScoreManager>();
 	}
 
 	private void Update()
@@ -23,13 +25,13 @@ public class Enemy : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			player.health -= 1;
+			spaceship.health -= 1;
 			Destroy(gameObject);
 		}
 
 		if (collision.CompareTag("Bullet"))
 		{
-			player.score++;
+			scoreManager.score++;
 			Destroy(gameObject);
 		}
 	}

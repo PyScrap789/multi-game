@@ -13,18 +13,9 @@ public class Spaceship : MonoBehaviour
 	public float decreaseTime;
 	public float minTime = 0.65f;
 
-	public int score;
-	public int highScore;
 	public int health;
 
-	public TextMeshProUGUI scoreText;
-	public TextMeshProUGUI highScoreText;
 	public TextMeshProUGUI healthText;
-
-	private void Start()
-	{
-		highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
-	}
 
 	private void Update()
 	{
@@ -34,7 +25,6 @@ public class Spaceship : MonoBehaviour
 		}
 
 		healthText.text = "HEALTH : " + health.ToString();
-		scoreText.text = score.ToString();
 
 		if (timeBetweenBulletSpawn <= 0)
 		{
@@ -49,12 +39,6 @@ public class Spaceship : MonoBehaviour
 		else
 		{
 			timeBetweenBulletSpawn -= Time.deltaTime;
-		}
-
-		if(score > PlayerPrefs.GetInt("HighScore", 0))
-		{
-			PlayerPrefs.SetInt("HighScore", score);
-			highScoreText.text = score.ToString();
 		}
 	}
 }

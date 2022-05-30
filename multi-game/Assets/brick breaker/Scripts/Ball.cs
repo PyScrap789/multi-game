@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
 	Brick brick;
 
 	public GameObject brickParticleEffect;
+	public GameObject gameOverScreen;
 
 	public float speed = 500f;
 
@@ -27,6 +28,7 @@ public class Ball : MonoBehaviour
 
 		if(health <= 0)
 		{
+			gameOverScreen.SetActive(true);
 			Destroy(gameObject);
 		}
 	}

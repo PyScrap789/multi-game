@@ -7,6 +7,8 @@ public class Spaceship : MonoBehaviour
 {
 	public GameObject bulletPrefab;
 	public GameObject firePosition;
+	public GameObject gameOverScreen;
+	public GameObject spawner;
 
 	public float timeBetweenBulletSpawn;
 	public float startTimeBtwSpawn;
@@ -21,6 +23,8 @@ public class Spaceship : MonoBehaviour
 	{
 		if(health <= 0)
 		{
+			gameOverScreen.SetActive(true);
+			Destroy(spawner);
 			Destroy(gameObject);
 		}
 

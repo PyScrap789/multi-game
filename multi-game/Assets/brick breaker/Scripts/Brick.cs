@@ -5,6 +5,7 @@ using UnityEngine;
 public class Brick : MonoBehaviour
 {
 	public int health;
+	public bool randomHealth;
 
 	public ScoreManager scoreManager;
 
@@ -20,7 +21,10 @@ public class Brick : MonoBehaviour
 
 	private void Start()
 	{
-		health = Random.Range(1, 5);
+		if(randomHealth == true)
+		{
+			health = Random.Range(1, 5);
+		}
 	}
 
 	private void Update()

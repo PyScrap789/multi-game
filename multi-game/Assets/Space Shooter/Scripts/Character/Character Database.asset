@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ba38847314c05408128b31402ac90c, type: 3}
+  m_Name: Character Database
+  m_EditorClassIdentifier: 
+  Characters:
+  - characterName: Blue
+    characterSprite: {fileID: 5590293459754250356, guid: a9f3d84747e92af4a91a31ef0d5d5918, type: 3}
+  - characterName: Green
+    characterSprite: {fileID: 2039387854376810869, guid: a92f4d6610c0ad24faa5c0275ec34c9f, type: 3}
+  - characterName: Red
+    characterSprite: {fileID: 9099455474308754647, guid: 298ff576e9884094abfd8df9eac5e623, type: 3}
+  - characterName: White
+    characterSprite: {fileID: 4153363722203562942, guid: c344537a115b6e245b5ba373d6edf993, type: 3}
